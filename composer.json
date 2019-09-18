@@ -1,0 +1,18 @@
+{
+    "name": "zouzhanhao/log",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zzh",
+            "email": "1021314274@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Log\\": "src/"
+        }
+    }
+}

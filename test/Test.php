@@ -3,5 +3,4 @@ require "../vendor/autoload.php";
 
 use Log\Log;
 
-$a = new Log();
-$a->test();
+Log::log('test','filename','title');

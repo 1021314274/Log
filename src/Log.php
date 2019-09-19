@@ -1,6 +1,6 @@
 <?php
 
-namespace Log;
+namespace zouzhanhao\Log;
 /**
  * 一个简单的日志记录类
  * Class Log
@@ -8,7 +8,7 @@ namespace Log;
  */
 class Log
 {
-    const  FLAG = true;
+    public $flag = true;
 
     /**
      * @param $content  内容
@@ -18,7 +18,7 @@ class Log
     public static function log($content, $filename = 'default', $title = "")
     {
 
-        if (self::FLAG == false || empty($content)) {
+        if (self::flag == false || empty($content)) {
             return;
         }
         $filename = trim($filename, '/');

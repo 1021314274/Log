@@ -2,6 +2,6 @@
 
 require '../vendor/autoload.php';
 
-use Log\Log;
+use ZZH\Log\Log;
 
 Log::log('text', 'filename', 'biaoti');

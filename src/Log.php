@@ -2,7 +2,7 @@
 
 namespace Log;
 /**
- * 一个简答的日志记录类
+ * 一个简单的日志记录类
  * Class Log
  * @package Log
  */
@@ -17,22 +17,21 @@ class Log
      */
     public static function log($content, $filename = 'default', $title = "")
     {
-        if (FLAG == false || empty($content)) {
+
+        if (self::FLAG == false || empty($content)) {
             return;
         }
         $filename = trim($filename, '/');
-        $fileUrl = 'Log/' . $filename;
+        $fileUrl = __DIR__ . '/Log/' . $filename;
         if (!file_exists('Log')) {
             mkdir('Log', 0777);
-            fopen('Log/index.html', 'w');
         }
         if (!file_exists($fileUrl)) {
-            $fileUrl = 'Log/';
+            $fileUrl = __DIR__ . '/Log/';
             $array = explode('/', $filename);
             foreach ($array as $k => $v) {
                 $fileUrl .= $v . '/';
                 @mkdir($fileUrl, 0777);
-                @fopen($fileUrl . '/index.html', 'w');
             }
             $fileUrl = rtrim($fileUrl, '/');
         }
@@ -44,10 +43,11 @@ class Log
         } else {
             $text = $content;
         }
-        $start = '-----------------------' . $title . '(start)-------------------<br>';
-        $end = '<br>-----------------------' . $title . '(end)-------------------<br>';
-        $text = "【" . date('Y-m-d H:i:s') . '】' . $start . $text . $end;
-        fwrite($file, $text . "\r\n");
+        $start = '-----------------------' . $title . '(start)-------------------' . "\r\n";
+        $text = "【" . date('Y-m-d H:i:s') . '】' . $text . "\r\n";
+        $end = '-----------------------' . $title . '(end)-------------------' . "\r\n";
+        $txt = $start . $text . $end;
+        fwrite($file, $txt);
         fclose($file);
     }
 
